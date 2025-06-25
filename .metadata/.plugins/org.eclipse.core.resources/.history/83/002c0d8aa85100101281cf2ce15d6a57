@@ -1,0 +1,50 @@
+package com.fileprinter.service.impl;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.stereotype.Service;
+
+import com.fileprinter.service.kafkaService;
+
+
+
+
+/**
+ * @author Shin Soman
+ *
+ */
+@Service
+public class kafkaServiceImpl implements kafkaService {
+
+	Logger logger = LoggerFactory.getLogger(kafkaServiceImpl.class);
+
+	@Value("${spring.kafka.producer-topic}")
+	private String neonTopic;
+
+	@Autowired
+	private KafkaTemplate<String, String> kafkaTemplate;
+
+	@Override
+	public String pushToKafka(String message) {
+
+		try {
+
+			logger.info("KafkaProxyServiceImpl|pushToKafka()|Message Received:{}", message);
+
+			this.kafkaTemplate.send(neonTopic, message);
+
+			logger.info("KafkaProxyServiceImpl|pushToKafka()|Message Produced.");
+
+			return "{\r\n" + "\"statusCode\":200,\r\n" + "\"statusMessage\":\"SUCCESS\"\r\n" + "}";
+
+		} catch (Exception ex) {
+			logger.error("KafkaProxyServiceImpl|pushToKafka()|Exception:{}", ex);
+			return "{\r\n" + "\"statusCode\":500,\r\n" + "\"statusMessage\":\"" + ex.getMessage() + "\"\r\n" + "}";
+		}
+
+	}
+
+}

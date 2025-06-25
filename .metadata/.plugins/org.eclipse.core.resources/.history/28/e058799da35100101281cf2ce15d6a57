@@ -1,0 +1,18 @@
+server:
+ port: 8081
+spring:
+    kafka:
+      consumer:
+         bootstrap-servers: node1.extension.env71.flytxt.com,node2.extension.env71.flytxt.com,jaris.extension.env71.flytxt.com;
+         properties:
+          security:
+           protocol: SASL_PLAINTEXT
+          sasl:
+           mechanism: PLAIN
+           jaas:
+            config: org.apache.kafka.common.security.plain.PlainLoginModule required username="flytxt" password="flytxt-secret";
+         topic: file-printer
+         group-id: group_id
+         auto-offset-reset: earliest
+         key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+         value-deserializer: org.apache.kafka.common.serialization.StringDeserializer

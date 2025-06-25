@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: file-reader-service
+  kafka:
+    producer:
+      bootstrap-servers: jarvis.extension.env71.flytxt.com:9092,node2.extension.env71.flytxt.com:9092,node1.extension.env71.flytxt.com:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      topic: filewatch
+      properties:
+        security:
+          protocol: SASL_PLAINTEXT
+        sasl:
+          mechanism: PLAIN
+          jaas:
+            config: >
+              org.apache.kafka.common.security.plain.PlainLoginModule required
+              username="flytxt"
+              password="flytxt-secret";

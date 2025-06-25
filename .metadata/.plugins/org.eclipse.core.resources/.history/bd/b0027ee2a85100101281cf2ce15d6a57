@@ -1,0 +1,7 @@
+package com.fileprinter.service;
+
+public interface kafkaService {
+
+	String pushToKafka(String message);
+
+}

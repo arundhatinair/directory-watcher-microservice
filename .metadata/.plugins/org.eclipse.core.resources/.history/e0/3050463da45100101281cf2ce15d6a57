@@ -1,0 +1,10 @@
+spring.application.name=file-reader-service
+server.port=8080
+spring.kafka.producer-allowanceTopic=custom-service-allowance
+spring.kafka.producer.bootstrap-servers=jarvis.extension.env71.flytxt.com:9092,node2.extension.env71.flytxt.com:9092,node1.extension.env71.flytxt.com:9092
+spring.kafka.producer.properties.security.protocol=SASL_PLAINTEXT
+spring.kafka.producer.properties.sasl.mechanism=PLAIN
+spring.kafka.producer.properties.sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="flytxt" password="flytxt-secret";
+spring.kafka.producer.key-serializer=org.apache.kafka.common.serialization.StringSerializer
+spring.kafka.producer.value-serializer=org.apache.kafka.common.serialization.StringSerializer
+
