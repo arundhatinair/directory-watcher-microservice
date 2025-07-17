@@ -15,5 +15,5 @@ spring:
           jaas:
             config: >
               org.apache.kafka.common.security.plain.PlainLoginModule required
-              username="flytxt"
-              password="flytxt-secret";
+              username=""
+              password="";
