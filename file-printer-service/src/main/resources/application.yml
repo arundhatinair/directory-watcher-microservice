@@ -16,8 +16,8 @@ spring:
           jaas:
             config: >
               org.apache.kafka.common.security.plain.PlainLoginModule required
-              username="flytxt"
-              password="flytxt-secret";
+              username=""
+              password="";
     consumer-topic: filewatch
 server:
   port: 8081
