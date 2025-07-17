@@ -63,8 +63,6 @@ public class CsvChangeHandler implements FileChangeListener {
 			while ((line = reader.readLine()) != null) {
 				String[] data = line.split(",");
 				log.info("Row:{}", String.join("|", data));
-				// restTemplate.postForObject("http://192.168.151.122:8275/rest/v1/print",
-				// String.join("|", data), Void.class);
 				log.info("neonTopic:{}", neonTopic);
 				this.kafkaTemplate.send(neonTopic, String.join("|", data));
 
