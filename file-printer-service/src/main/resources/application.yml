@@ -3,7 +3,7 @@ spring:
     name: file-printer-service
   kafka:
     consumer:
-      bootstrap-servers: jarvis.extension.env71.flytxt.com:9092,node2.extension.env71.flytxt.com:9092,node1.extension.env71.flytxt.com:9092
+      bootstrap-servers: 
       group-id: group_id2
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
