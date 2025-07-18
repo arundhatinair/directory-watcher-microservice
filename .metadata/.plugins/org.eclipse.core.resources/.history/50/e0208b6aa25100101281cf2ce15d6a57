@@ -3,14 +3,13 @@ server:
 spring:
     kafka:
       consumer:
-         bootstrap-servers: node1.internal.mtnzambia.co.zm:9092,node2.internal.mtnzambia.co.zm:9092,node3.internal.mtnzambia.co.zm:9092
+         bootstrap-servers: 
          properties:
           security:
            protocol: SASL_PLAINTEXT
           sasl:
            mechanism: PLAIN
            jaas:
-            config: org.apache.kafka.common.security.plain.PlainLoginModule required username="flytxt" password="flytxt-secret";
          topic: neon-recharge-topic
          group-id: group_id
          auto-offset-reset: earliest
