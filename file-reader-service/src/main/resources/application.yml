@@ -3,7 +3,7 @@ spring:
     name: file-reader-service
   kafka:
     producer:
-      bootstrap-servers: jarvis.extension.env71.flytxt.com:9092,node2.extension.env71.flytxt.com:9092,node1.extension.env71.flytxt.com:9092
+      bootstrap-servers: 
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
       topic: filewatch
